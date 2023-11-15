@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import styles from './styles.module.css';
 // import { fetchReports } from "@/api/api";
 import * as API from "@/api/api";
-import Sidebar from "./1Sidebar";
-import Content from "./2Content";
-export default class Root extends Component {
+
+export default class Sidebar extends Component {
 
     constructor(props) {
         super(props)
@@ -17,8 +16,8 @@ export default class Root extends Component {
 
     render() {
         return(
-            <div className={styles.main}>
-                Hello World! 👋
+            <div className={this.props.className}>
+                
             </div>
         )
     }
