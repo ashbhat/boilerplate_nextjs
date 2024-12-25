@@ -1,0 +1,25 @@
+.uploaderContainer {
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.fileInput {
+  margin-bottom: 10px;
+}
+
+.uploadButton {
+  padding: 8px 16px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.uploadButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
