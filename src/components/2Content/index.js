@@ -1,24 +1,28 @@
 import React, { Component } from "react";
 import styles from './styles.module.css';
-// import { fetchReports } from "@/api/api";
-import * as API from "@/api/api";
+import CsvUploader from './CsvUploader';
+import ChartsView from './ChartsView';
 
 export default class Content extends Component {
-
     constructor(props) {
-        super(props)
-        this.state = {}
+        super(props);
+        this.state = {
+            csvData: null
+        };
     }
 
-    componentDidMount() {
-
-    }
+    handleCsvParsed = (parsedData) => {
+        this.setState({ csvData: parsedData });
+    };
 
     render() {
-        return(
-            <div className={this.props.className}>
-                
+        const { csvData } = this.state;
+        
+        return (
+            <div className={`${this.props.className} ${styles.contentContainer}`}>
+                <CsvUploader onCsvParsed={this.handleCsvParsed} />
+                {csvData && <ChartsView data={csvData} />}
             </div>
-        )
+        );
     }
 }

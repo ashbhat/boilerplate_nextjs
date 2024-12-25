@@ -49,3 +49,10 @@
   color: #333;
   text-align: center;
 }
+
+.contentContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f5f5f5;
+}

@@ -18,7 +18,8 @@ export default class Root extends Component {
     render() {
         return(
             <div className={styles.main}>
-                Hello World! 👋
+                <Sidebar className={styles.sidebar} />
+                <Content className={styles.content} />
             </div>
         )
     }
