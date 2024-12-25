@@ -1,13 +1,15 @@
 .uploaderContainer {
-  padding: 20px;
+  padding: 12px 8px;
   border: 2px dashed #ccc;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-align: center;
+  width: 100%;
 }
 
 .fileInput {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  max-width: 100%;
 }
 
 .uploadButton {
@@ -25,12 +27,12 @@
 }
 
 .chartsContainer {
-  padding: 20px;
-  width: 100vw;
+  padding: 16px 8px;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 16px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -39,12 +41,12 @@
   width: 100%;
   background: white;
   border-radius: 8px;
-  padding: 20px;
+  padding: 16px 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chartTitle {
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   font-size: 1.2rem;
   color: #333;
   text-align: center;
@@ -53,6 +55,21 @@
 .contentContainer {
   width: 100%;
   min-height: 100vh;
-  padding: 20px;
+  padding: 16px 8px;
   background-color: #f5f5f5;
+}
+
+@media (min-width: 769px) {
+  .chartsContainer,
+  .contentContainer {
+    padding: 20px;
+  }
+  
+  .chartWrapper {
+    padding: 20px;
+  }
+  
+  .chartsContainer {
+    gap: 30px;
+  }
 }

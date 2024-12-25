@@ -16,3 +16,13 @@
     height: 100%;
     background-color: #ffffff;
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .content {
+        width: 100%;
+    }
+}
