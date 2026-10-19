@@ -31,6 +31,19 @@ For framework behavior, consult the version-matched Next.js documentation in
   boundary needing state, effects, event handlers, or browser APIs. Avoid class
   components and unnecessary client boundaries.
 
+## Multiple pages and shared layouts
+
+- Create each page at `src/app/<route>/page.js`. Use descriptive, unnumbered
+  route folders; reserve numbered folders for private UI components.
+- Colocate each page's numbered components beneath its route folder.
+- Put UI shared across all pages in the root layout. Use nested layouts for UI
+  shared only within a section.
+- Use `next/link` for internal navigation.
+- Use dynamic route folders such as `[id]` for parameterized URLs.
+- In Next.js 16 server code, await `params`, `searchParams`, and asynchronous
+  request APIs such as `cookies()` and `headers()` before accessing their values.
+- Set page titles and descriptions through the metadata API.
+
 ## API requests
 
 - Implement browser-facing endpoints in `src/app/api/<name>/route.js` with named
@@ -53,6 +66,7 @@ For framework behavior, consult the version-matched Next.js documentation in
 
 - Install dependencies with `npm install`; start development with `npm run dev`.
 - Run `npm test`, `npm run lint`, and `npm run build` for relevant code changes.
+  Run lint separately: the production build does not replace the lint check.
   API unit tests use Node's test runner; no external service is needed.
 - Test API changes through the running Next.js server as appropriate, including
   errors and unsupported methods. Report any live checks that were not run.
