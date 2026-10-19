@@ -1,44 +1,31 @@
-
-export async function sampleGet(callback, error) {
-    fetch("https://httpbin.org/anything")
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        console.log("hit an error")
-        throw new Error('Something went wrong ...')
-      }
-    })
-    .then(data => {
-      callback(data, null)
-    })
-    .catch(error => {
-        callback(null, error)
-    })
+// Browser helpers call our Next.js API; external URLs and credentials stay server-side.
+async function request(options, callback, onError) {
+  let data;
+  try {
+    const response = await fetch('/api/sample', options);
+    if (!response.ok) {
+      throw new Error(`API request failed (${response.status})`);
+    }
+    data = await response.json();
+  } catch (error) {
+    if (typeof onError === 'function') {
+      onError(error);
+    } else {
+      callback(null, error);
+    }
+    return;
+  }
+  callback(data, null);
 }
 
-export async function samplePOST(callback, error) {
-  const options = {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json, text/plain, */*',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      "key": "value"
-    }),
-  }
+export function sampleGet(callback, onError) {
+  return request({ method: 'GET' }, callback, onError);
+}
 
-  fetch("https://httpbin.org/anything", options)
-    .then(response => {
-      if (response.ok) {
-        return response.json()
-      } else {
-        throw new Error('Something went wrong ...')
-      }
-    })
-    .then(data => {
-      callback(data, null)
-    })
-    .catch(null, error)
+export function samplePOST(callback, onError) {
+  return request({
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ key: 'value' }),
+  }, callback, onError);
 }
