@@ -1,5 +1,8 @@
 # Coding guidance
 
+For framework behavior, consult the version-matched Next.js documentation in
+`node_modules/next/dist/docs/` after installing dependencies.
+
 ## Routes and components
 
 - Use the Next.js App Router under `src/app/`. Use `page.js` for pages,
