@@ -1,5 +1,5 @@
 ### Context
-This is a small Next.js App Router boilerplate.
+This is a small Next.js 16 App Router boilerplate using React 19.
 
 ### Development
 
@@ -9,7 +9,8 @@ npm run dev
 ```
 
 Use Node.js 20.9 or newer. Run `npm test`, `npm run lint`, and `npm run build`
-to validate changes. `npm start` serves the production build.
+to validate changes. Lint runs separately from the production build.
+`npm start` serves the production build.
 
 ### Project structure
 
