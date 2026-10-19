@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
 
 // Load Next's ESM route without changing the CommonJS project configuration.
-const source = await readFile(new URL('../src/app/api/sample/route.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('./route.js', import.meta.url), 'utf8');
 const { GET, POST } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
 const post = (body) => new Request('http://localhost/api/sample', {
   method: 'POST', headers: { 'Content-Type': 'application/json' }, body,
